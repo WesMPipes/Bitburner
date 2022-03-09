@@ -9,7 +9,7 @@ function localeHHMMSS(ms = 0){
   return new Date(ms).toLocaleTimeString()
 }
 
-export async function main(){
+export async function main(ns){
   ns.tprint (`[${localeHHMMSS()}] Starting start.js`)
   
   let hostname = ns.getHostname()
