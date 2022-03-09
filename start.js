@@ -28,6 +28,7 @@ export async function main(){
     await ns.wget(path + '?ts=' + new Date().getTime(), filename)
   }
   
-  
+  ns.tprint (`[${localeHHMMSS()}] spawning sheerHeartAttack.js`)
+  ns.spawn('sheerHeartAttack.js', 1)
   
 }
