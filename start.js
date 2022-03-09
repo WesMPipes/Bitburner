@@ -22,7 +22,7 @@ export async function main(ns){
     const filename = filesToDownload[i]
     const path = baseURL + filename
     await ns.scriptKill(filename, 'home')
-    await ns.remove(filename)
+    await ns.rm(filename)
     await ns.sleep(200)
     ns.tprint (`[${localeHHMMSS()}] trying to download ${path}`)
     await ns.wget(path + '?ts=' + new Date().getTime(), filename)
