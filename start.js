@@ -1,4 +1,4 @@
-const baseURL = 'https://github.com/WesMPipes/Bitburner/tree/main/'
+const baseURL = 'https://github.com/WesMPipes/Bitburner/raw/main/'
 const filesToDownload = ['cashCrasher.js', 'sheerHeartAttack.js']
 
 function localeHHMMSS(ms = 0){
