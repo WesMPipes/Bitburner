@@ -1,1 +1,2 @@
-ns.print(`Hello World`)
+ns.print('Hello World');
+
