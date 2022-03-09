@@ -1,0 +1,1 @@
+ns.print(`Hello World`)
