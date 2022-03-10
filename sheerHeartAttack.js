@@ -182,8 +182,14 @@ async function activate_CC(server, ns) {
 	var posThreads = host_max_ram / currentRAMAmmount>>0;
 	ns.tprint(`Possible Threads for ${server}: ${posThreads}`);
 
-	await ns.exec(cashCrasher, server, posThreads);
-	await ns.sleep(1);
+	if (posThreads === 0){
+		ns.tprint(`${server} hat nicht genügend RAM`)
+		// continue (`${server} hat nicht genügend RAM`)
+	}
+	else{
+		await ns.exec(cashCrasher, server, posThreads);
+		await ns.sleep(1);
 
-	ns.tprint(`${server}: CASH CRASHER ACTIVATED`);
+		ns.tprint(`${server}: CASH CRASHER ACTIVATED`);
+	}
 }
