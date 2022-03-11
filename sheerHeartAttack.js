@@ -31,7 +31,7 @@ export async function main (ns){
     }
 
     if (servers.length === 0){
-      ns.tprint("Aktuell keine weiteren möglichen Ziele.");
+      ns.tprint(`[${localeHHMMSS()}] Aktuell keine weiteren möglichen Ziele.`);
     }
 	else{
 		ns.tprint(servers)
@@ -49,6 +49,14 @@ export async function main (ns){
 	await ns.sleep(30000);
 
   }
+}
+
+function localeHHMMSS(ms = 0){
+  if (!ms){
+    ms = new Date().getTime()
+  }
+  
+  return new Date(ms).toLocaleTimeString()
 }
 
 
@@ -90,7 +98,7 @@ async function take_node(server, ns) {
 	// ns.tprint(`Anzahl vorhandener Tools: ${num_pos_ports}\n\n`)
 	if (myHLvl >= regHLvl && num_req_ports <= num_pos_ports && !(ns.hasRootAccess(server))) {
 
-		ns.tprint(`Hacking ${server}.....\n`)
+		ns.tprint(`[${localeHHMMSS()}] Hacking ${server}.....\n`)
 
 		if (num_req_ports == 0) {
 			await ns.nuke(server);
@@ -159,7 +167,7 @@ async function take_node(server, ns) {
 		await ns.sleep(2);
 
 		if (!(ns.hasRootAccess(server))) {
-			ns.tprint(`ERROR while hacking ${server}`);
+			ns.tprint(`[${localeHHMMSS()}] ERROR while hacking ${server}`);
 		}
 	}
 }
@@ -171,7 +179,7 @@ async function send_CC(server, ns) {
 		await ns.sleep(2);
 	}
 
-	ns.tprint(`Payload sent to ${server}`);
+	ns.tprint(`[${localeHHMMSS()}] Payload sent to ${server}`);
 }
 
 async function activate_CC(server, ns) {
@@ -180,16 +188,16 @@ async function activate_CC(server, ns) {
 	var currentRAMAmmount = ns.getScriptRam(cashCrasher);
 	var host_max_ram = ns.getServerMaxRam(server);
 	var posThreads = host_max_ram / currentRAMAmmount>>0;
-	ns.tprint(`Possible Threads for ${server}: ${posThreads}`);
+	ns.tprint(`[${localeHHMMSS()}] Possible Threads for ${server}: ${posThreads}`);
 
 	if (posThreads === 0){
-		ns.tprint(`${server} hat nicht genügend RAM`)
+		ns.tprint(`[${localeHHMMSS()}] ${server} hat nicht genügend RAM`)
 		// continue (`${server} hat nicht genügend RAM`)
 	}
 	else{
 		await ns.exec(cashCrasher, server, posThreads);
 		await ns.sleep(1);
 
-		ns.tprint(`${server}: CASH CRASHER ACTIVATED`);
+		ns.tprint(`[${localeHHMMSS()}] ${server}: CASH CRASHER ACTIVATED`);
 	}
 }
