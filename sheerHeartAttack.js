@@ -34,11 +34,11 @@ export async function main (ns){
       ns.tprint(`[${localeHHMMSS()}] Aktuell keine weiteren möglichen Ziele.`);
     }
 	else{
-		ns.tprint(servers)
+		ns.tprint([${localeHHMMSS()}] server)
 
 		for (let i = 0; i < servers.length; i++) {
 		var nodename = servers[i];
-		ns.tprint(`servernode: ${nodename}`)
+		ns.tprint(`[${localeHHMMSS()}] servernode: ${nodename}`)
 		await take_node(nodename, ns);
 		await send_CC(nodename, ns);
 		await activate_CC(nodename, ns);
