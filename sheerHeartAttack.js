@@ -34,7 +34,7 @@ export async function main (ns){
       ns.tprint(`[${localeHHMMSS()}] Aktuell keine weiteren möglichen Ziele.`);
     }
 	else{
-		ns.tprint([${localeHHMMSS()}] server)
+		ns.tprint(`[${localeHHMMSS()}] server`)
 
 		for (let i = 0; i < servers.length; i++) {
 		var nodename = servers[i];
