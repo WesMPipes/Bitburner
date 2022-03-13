@@ -1,5 +1,5 @@
 const baseURL = 'https://github.com/WesMPipes/Bitburner/raw/main/'
-const filesToDownload = ['cashCrasher.js', 'sheerHeartAttack.js', 'purchase500gb.script', 'tkJoe.script']
+const filesToDownload = ['cashCrasher.js', 'sheerHeartAttack.js', 'purchase500gb.script', 'tkJoe.script', 'tkPhantasy.script']
 
 function localeHHMMSS(ms = 0){
   if (!ms){
