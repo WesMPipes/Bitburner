@@ -46,7 +46,7 @@ export async function main (ns){
 
 	}
 
-	await ns.sleep(30000);
+	await ns.sleep(60000);
 
   }
 }
@@ -173,7 +173,24 @@ async function take_node(server, ns) {
 }
 
 async function send_CC(server, ns) {
-	var cashCrasher = 'cashCrasher.js';
+
+	var cashCrasher = ' ';
+
+	if (ns.hasRootAccess('phantasy')){
+
+		cashCrasher = 'tkPhantasy.script';
+	}
+	else if (ns.hasRootAccess('joesguns')){
+		cashCrasher = 'tkJoe.script';
+
+	}
+	else {
+		cashCrasher = 'cashCrasher.js'
+	}
+
+
+
+	//var cashCrasher = 'cashCrasher.js';
 	if (!ns.fileExists(cashCrasher, server)) {
 		await ns.scp(cashCrasher, 'home', server);
 		await ns.sleep(2);
@@ -183,7 +200,19 @@ async function send_CC(server, ns) {
 }
 
 async function activate_CC(server, ns) {
-	var cashCrasher = 'cashCrasher.js';
+	var cashCrasher = ' ';
+
+	if (ns.hasRootAccess('phantasy')){
+
+		cashCrasher = 'tkPhantasy.script';
+	}
+	else if (ns.hasRootAccess('joesguns')){
+		cashCrasher = 'tkJoe.script';
+
+	}
+	else {
+		cashCrasher = 'cashCrasher.js'
+	}
 
 	var currentRAMAmmount = ns.getScriptRam(cashCrasher);
 	var host_max_ram = ns.getServerMaxRam(server);
