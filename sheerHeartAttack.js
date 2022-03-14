@@ -201,8 +201,11 @@ async function send_CC(server, ns) {
 
 async function activate_CC(server, ns) {
 	var cashCrasher = ' ';
-
-	if (ns.hasRootAccess('phantasy')){
+	
+	if (ns.hasRootAccess('omega-net')){
+		cashCrasher = 'tkOmega.script'
+	}
+	else if (ns.hasRootAccess('phantasy')){
 
 		cashCrasher = 'tkPhantasy.script';
 	}
